@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ApiAuthController;
 use App\Http\Controllers\HolidayPlanController;
-use App\Http\Controllers\ParticipantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +16,6 @@ use App\Http\Controllers\ParticipantController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-$router->get('foo', function () {
-    return 'Hello World';
-});
 
 Route::group(['middleware' => ['cors', 'json.response']], function () {
 
@@ -45,10 +36,4 @@ Route::middleware('auth:api')->group(function () {
     Route::delete('/holidays/{id}', [HolidayPlanController::class, 'destroy']);
 
     Route::get('/holidays/{id}/pdf', [HolidayPlanController::class, 'generatePDF']);
-
-    Route::post('/participants', [ParticipantController::class, 'store']);
-    Route::get('/participants', [ParticipantController::class, 'index']);
-    Route::get('/participants/{id}', [ParticipantController::class, 'show']);
-    Route::put('/participants/{id}', [ParticipantController::class, 'update']);
-    Route::delete('/participants/{id}', [ParticipantController::class, 'destroy']);
 });

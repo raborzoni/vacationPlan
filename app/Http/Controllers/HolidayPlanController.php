@@ -55,7 +55,8 @@ class HolidayPlanController extends Controller
      */
     public function show($id)
     {
-        $holidayPlan = HolidayPlan::with('participants')->findOrFail($id);
+        $holidayPlan = HolidayPlan::findOrFail($id);
+        ;
         return response()->json($holidayPlan);
     }
 
@@ -76,10 +77,10 @@ class HolidayPlanController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'nullable|string|max:255',
             'description' => 'nullable|string',
-            'date' => 'required|date',
-            'location' => 'required|string|max:255',
+            'date' => 'nullable|date',
+            'location' => 'nullable|string|max:255',
             'participants' => 'nullable|array',
         ]);
 
@@ -107,8 +108,10 @@ class HolidayPlanController extends Controller
     public function generatePDF($id)
     {
         $holidayPlan = HolidayPlan::findOrFail($id);
-        
+
         $pdf = PDF::loadView('holiday_plan_pdf', compact('holidayPlan'));
-        return $pdf->download('holiday_plan_'.$holidayPlan->id.'.pdf');
+
+        // Forçar o download com o cabeçalho correto
+        return $pdf->download('holiday_plan_' . $holidayPlan->id . '.pdf');
     }
 }

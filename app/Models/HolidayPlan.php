@@ -15,10 +15,10 @@ class HolidayPlan extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 
-        'description', 
-        'date', 
-        'location', 
+        'title',
+        'description',
+        'date',
+        'location',
         'participants'
     ];
 
@@ -32,15 +32,8 @@ class HolidayPlan extends Model
         'date' => 'date',
     ];
 
-    public function participants()
+    public function getDateAttribute($value)
     {
-        return $this->hasMany(Participant::class);
+        return \Carbon\Carbon::parse($value)->format('Y-m-d');
     }
-
-    protected static function booted()
-{
-    static::addGlobalScope('participants', function ($query) {
-        $query->with('participants');
-    });
-}
 }
