@@ -117,7 +117,7 @@ In the `.env` file, define the database settings:
 - **GET** `/api/holidays/{id}`: Retrieve a specific holiday plan.
 - **PUT** `/api/holidays/{id}`: Update a holiday plan.
 - **DELETE** `/api/holidays/{id}`: Delete a holiday plan.
-- **PDF** `/api/holidays/{id}/pdf`: Download the PDF of a specific holiday plan.
+- **GET** `/api/holidays/{id}/pdf`: Download the PDF of a specific holiday plan.
 
 ## 8. Authentication
 
