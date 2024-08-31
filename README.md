@@ -1,93 +1,97 @@
-# Documentação do Sistema
+# Documentation - Vacation Plan - Buzzvel
 
-## Índice
-1. [Introdução](#introdução)
-2. [Tecnologias Utilizadas](#tecnologias-utilizadas)
-3. [Requisitos de Instalação](#requisitos-de-instalação)
-4. [Configuração do Ambiente de Desenvolvimento](#configuração-do-ambiente-de-desenvolvimento)
-5. [Estrutura do Projeto](#estrutura-do-projeto)
-6. [Configuração do Banco de Dados](#configuração-do-banco-de-dados)
-7. [Rotas e Endpoints da API](#rotas-e-endpoints-da-api)
-8. [Autenticação](#autenticação)
-9. [Gerenciamento de Erros](#gerenciamento-de-erros)
-10. [Testes](#testes)
-11. [Deploy](#deploy)
-12. [Anexos e Recursos](#anexos-e-recursos)
+## Index
+1. [Introduction](#introduction)
+2. [Technologies Used](#technologies-used)
+3. [Installation Requirements](#installation-requirements)
+4. [Development Environment Setup](#development-environment-setup)
+5. [Project Structure](#project-structure)
+6. [Database Configuration](#database-configuration)
+7. [API Routes and Endpoints](#api-routes-and-endpoints)
+8. [Authentication](#authentication)
+9. [Error Management](#error-management)
+10. [Tests](#tests)
+11. [Deployment](#deployment)
+12. [Attachments and Resources](#attachments-and-resources)
 
-## 1. Introdução
-Este documento fornece uma visão geral do sistema, abordando suas funcionalidades principais, a arquitetura utilizada, e como configurar, desenvolver e manter o projeto. O sistema foi desenvolvido utilizando o framework Laravel e destina-se à criação de planos de férias, onde o usuário poderá organizar suas férias com a localização do destino, a data da viagem e, se for necessário, informar se haverá alguma companhia durante as viagens.
+## 1. Introduction
+This document provides an overview of the system, covering its main functionalities, the architecture used, and how to configure, develop, and maintain the project. The system was developed using the Laravel framework and is intended for the creation of holiday plans, where the user can organize their holidays with the location of the destination, the date of the trip, and, if necessary, indicate if there will be any companions during the travels.
 
-## 2. Tecnologias Utilizadas
+## 2. Technologies Used
 - **Backend**: PHP 8.x, Laravel 9.x
-- **Banco de Dados**: MySQL 8.x
-- **Outras Bibliotecas**: Laravel Passport para autenticação, DomPDF para geração de PDFs
-- **Servidor Web**: Apache (XAMPP)
-- **Ferramentas**: Composer, Git, Postman (para testes de API)
+- **Database**: MySQL 8.x
+- **Other Libraries**: Laravel Passport for authentication, DomPDF for PDF generation
+- **Web Server**: Apache (XAMPP)
+- **Tools**: Composer, Git, Postman (for API testing)
 
-## 3. Requisitos de Instalação
+## 3. Installation Requirements
 
-### Software Necessário
-- **PHP**: Versão 8.x ou superior
-- **Composer**: Para gerenciar as dependências do PHP
-- **MySQL**: Versão 8.x
-- **Git**: Para controle de versão
-- **Servidor Web**: Apache (via XAMPP ou WAMP)
+### Necessary Software
+- **PHP**: Version 8.x or higher
+- **Composer**: To manage PHP dependencies
+- **MySQL**: Version 8.x
+- **Git**: For version control
+- **Web Server**: Apache (via XAMPP or WAMP)
 
-### Dependências
+### Dependencies
 - **Laravel Framework**
 - **Laravel Passport**
 - **DomPDF**
 
-## 4. Configuração do Ambiente de Desenvolvimento
+## 4. Development Environment Setup
 
-### Clonar o Repositório
+### Clone the Repository
+Clone the repository using the following command:
 $ git clone https://github.com/raborzoni/vacationPlan.git
 $ cd vacationPlan
 
-### Instalar Dependências do Projeto
+### Install Project Dependencies
+Install the necessary project dependencies with:
 $ composer install
 
-### Configurar o Arquivo .env
-Configure as variáveis de ambiente, como:
+### Configure the .env File
+Configure the environment variables, such as:
 - `DB_CONNECTION`
 - `DB_HOST`
 - `DB_PORT`
 - `DB_DATABASE`
 - `DB_USERNAME`
 - `DB_PASSWORD`
-- `APP_KEY`, entre outras.
+- `APP_KEY`, among others.
 
-### Gerar a Chave da Aplicação
+### Generate the Application Key
+Generate the application key using:
 $ php artisan key:generate
 
-### Configurar o Banco de Dados
-Crie o banco de dados conforme definido no arquivo .env.
-Execute as migrações para criar as tabelas necessárias:
+### Configure the Database
+Create the database as defined in the .env file.
+Execute migrations to create the necessary tables with:
 $ php artisan migrate
 
-### Rodar o Servidor de Desenvolvimento
+### Run the Development Server
+Start the development server with:
 $ php artisan serve
 
-Acesse o sistema em `http://localhost:8000`.
+Access the system at `http://localhost:8000`.
 
-## 5. Estrutura do Projeto
+## 5. Project Structure
 
-### Diretórios Importantes
-- `app/`: Contém os controladores, modelos e outras classes centrais do Laravel.
-- `config/`: Arquivos de configuração da aplicação.
-- `database/migrations/`: Arquivos de migração para a estrutura do banco de dados.
-- `routes/`: Definição das rotas da aplicação.
-- `resources/views/`: Template de PDF.
+### Important Directories
+- `app/`: Contains the controllers, models, and other core Laravel classes.
+- `config/`: Configuration files of the application.
+- `database/migrations/`: Migration files for the database structure.
+- `routes/`: Definition of the application's routes.
+- `resources/views/`: PDF template.
 
-### Arquivos Principais
-- `app/Models/`: Contém os modelos Eloquent para interação com o banco de dados.
-- `app/Http/Controllers/`: Contém os controladores que processam as requisições HTTP.
-- `routes/api.php`: Define as rotas da API.
+### Main Files
+- `app/Models/`: Contains the Eloquent models for interacting with the database.
+- `app/Http/Controllers/`: Contains the controllers that process HTTP requests.
+- `routes/api.php`: Defines the API routes.
 
-## 6. Configuração do Banco de Dados
+## 6. Database Configuration
 
-### Conexão
-No arquivo `.env`, defina as configurações do banco de dados:
+### Connection
+In the `.env` file, define the database settings:
 - `DB_CONNECTION=mysql`
 - `DB_HOST=127.0.0.1`
 - `DB_PORT=3306`
@@ -95,80 +99,80 @@ No arquivo `.env`, defina as configurações do banco de dados:
 - `DB_USERNAME=root`
 - `DB_PASSWORD=sua_senha`
 
-### Migrações e Seeds
-- **Migrações**: Utilize `php artisan migrate` para criar as tabelas.
+### Migrations and Seeds
+- **Migrations**: Use `php artisan migrate` to create the tables.
 
-## 7. Rotas e Endpoints da API
+## 7. API Routes and Endpoints
 
-### Rotas Públicas
-- **POST** `/api/register`: Registro de usuários.
-  - **Parâmetros**: `name`, `email`, `password`, `password_confirmation`.
-- **POST** `/api/login`: Autenticação de usuários.
-  - **Parâmetros**: `email`, `password`.
+### Public Routes
+- **POST** `/api/register`: User registration.
+  - **Parameters**: `name`, `email`, `password`, `password_confirmation`.
+- **POST** `/api/login`: User authentication.
+  - **Parameters**: `email`, `password`.
 
-### Rotas Protegidas
-- **POST** `/api/logout`: Logout de usuários.
-- **POST** `/api/holidays`: Criar um novo plano de férias.
-- **GET** `/api/holidays`: Recuperar todos os planos de férias.
-- **GET** `/api/holidays/{id}`: Recuperar um plano de férias específico.
-- **PUT** `/api/holidays/{id}`: Atualizar um plano de férias.
-- **DELETE** `/api/holidays/{id}`: Excluir um plano de férias.
-- **PDF** `/api/holidays/{id}/pdf`: Download do PDF de um plano de férias específico.
+### Protected Routes
+- **POST** `/api/logout`: User logout.
+- **POST** `/api/holidays`: Create a new holiday plan.
+- **GET** `/api/holidays`: Retrieve all holiday plans.
+- **GET** `/api/holidays/{id}`: Retrieve a specific holiday plan.
+- **PUT** `/api/holidays/{id}`: Update a holiday plan.
+- **DELETE** `/api/holidays/{id}`: Delete a holiday plan.
+- **PDF** `/api/holidays/{id}/pdf`: Download the PDF of a specific holiday plan.
 
-## 8. Autenticação
+## 8. Authentication
 
 ### Laravel Passport
-O sistema utiliza Laravel Passport para autenticação via OAuth2. Siga os passos abaixo para instalar e configurar o Passport:
+The system uses Laravel Passport for OAuth2 authentication. Follow the steps below to install and configure Passport:
 
-1. Instalar o Passport
+1. Install Passport
 $ composer require laravel/passport
 
-2. Rodar as Migrações
+2. Run the Migrations
 $ php artisan migrate
 
-3. Instalar o Passport
+3. Install Passport
 $ php artisan passport:install
 
-4. Configurar o Passport no AuthServiceProvider:
-   - Adicione `Passport::routes();` ao método `boot()` em `app/Providers/AuthServiceProvider.php`.
+4. Configure Passport in the AuthServiceProvider:
+   - Add `Passport::routes();` to the `boot()` method in `app/Providers/AuthServiceProvider.php`.
 
-### Proteção das Rotas
-Rotas que exigem autenticação utilizam o middleware `auth:api`.
+### Route Protection
+Routes that require authentication use the `auth:api` middleware.
 
-## 9. Gerenciamento de Erros
+## 9. Error Management
 
-### Tratamento de Erros
-- Erros são capturados e tratados no arquivo `app/Exceptions/Handler.php`.
-- Respostas de erro são padronizadas no formato JSON.
+### Error Handling
+- Errors are captured and handled in the `app/Exceptions/Handler.php` file.
+- Error responses are standardized in JSON format.
 
-### Mensagens de Erro Comuns
-- **401 Unauthorized**: Quando a autenticação falha.
-- **404 Not Found**: Quando uma rota ou recurso não é encontrado.
+### Common Error Messages
+- **401 Unauthorized**: When authentication fails.
+- **404 Not Found**: When a route or resource is not found.
 
-## 10. Testes
+## 10. Tests
 
-### Testes Unitários
-- Os testes unitários estão localizados no diretório `tests/Unit`.
-- Para rodar os testes, utilize o comando correspondente no Laravel.
+### Unit Tests
+- Unit tests are located in the `tests/Unit` directory.
+- To run the tests, use the corresponding Laravel command.
 
-### Testes de Integração
-- Os testes de integração estão localizados no diretório `tests/Feature`.
-- Cobrem cenários de ponta a ponta, como autenticação e operações CRUD.
+### Integration Tests
+- Integration tests are located in the `tests/Feature` directory.
+- They cover end-to-end scenarios, such as authentication and CRUD operations.
 
-## 11. Deploy
+## 11. Deployment
 
-### Pré-Requisitos para Deploy
-- Certifique-se de que todas as dependências estão instaladas.
-- Execute as migrações.
-- Configure corretamente o arquivo `.env` em produção.
+### Deployment Prerequisites
+- Ensure that all dependencies are installed.
+- Run the migrations.
+- Properly configure the `.env` file in production.
 
-### Serviços de Hospedagem
+### Hosting Services
 - DigitalOcean
 
-### Atualizações de Dependências
-- Utilize o comando apropriado para manter as dependências atualizadas.
+### Dependency Updates
+- Use the appropriate command to keep dependencies up to date.
 
-## 12. Anexos e Recursos
-- **Documentação do Laravel**: [Laravel Docs](https://laravel.com/docs)
-- **Documentação do Passport**: [Passport Docs](https://laravel.com/docs/9.x/passport)
-- **Guia de Estilo de Código**: Utilize [PSR-12](https://www.php-fig.org/psr/psr-12/) para padronizar o estilo de código.
+## 12. Attachments and Resources
+- **Laravel Documentation**: [Laravel Docs](https://laravel.com/docs)
+- **Passport Documentation**: [Passport Docs](https://laravel.com/docs/9.x/passport)
+- **Code Style Guide**: Use [PSR-12](https://www.php-fig.org/psr/psr-12/) to standardize the code style.
