@@ -1,18 +1,18 @@
 # Documentation - Vacation Plan - Buzzvel
 
 ## Index
-1. [Introduction](#introduction)
-2. [Technologies Used](#technologies-used)
-3. [Installation Requirements](#installation-requirements)
-4. [Development Environment Setup](#development-environment-setup)
-5. [Project Structure](#project-structure)
-6. [Database Configuration](#database-configuration)
-7. [API Routes and Endpoints](#api-routes-and-endpoints)
-8. [Authentication](#authentication)
-9. [Error Management](#error-management)
-10. [Tests](#tests)
-11. [Deployment](#deployment)
-12. [Attachments and Resources](#attachments-and-resources)
+1. [Introduction](#1-introduction)
+2. [Technologies Used](#2-technologies-used)
+3. [Installation Requirements](#3-installation-requirements)
+4. [Development Environment Setup](#4-development-environment-setup)
+5. [Project Structure](#5-project-structure)
+6. [Database Configuration](#6-database-configuration)
+7. [API Routes and Endpoints](#7-api-routes-and-endpoints)
+8. [Authentication](#8-authentication)
+9. [Error Management](#9-error-management)
+10. [Tests](#10-tests)
+11. [Deployment](#11-deployment)
+12. [Attachments and Resources](#12-attachments-and-resources)
 
 ## 1. Introduction
 This document provides an overview of the system, covering its main functionalities, the architecture used, and how to configure, develop, and maintain the project. The system was developed using the Laravel framework and is intended for the creation of holiday plans, where the user can organize their holidays with the location of the destination, the date of the trip, and, if necessary, indicate if there will be any companions during the travels.
