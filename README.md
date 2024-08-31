@@ -124,13 +124,13 @@ In the `.env` file, define the database settings:
 ### Laravel Passport
 The system uses Laravel Passport for OAuth2 authentication. Follow the steps below to install and configure Passport:
 
-1. Install Passport
+1. Install Passport:
 $ composer require laravel/passport
 
-2. Run the Migrations
+2. Run the Migrations:
 $ php artisan migrate
 
-3. Install Passport
+3. Install Passport:
 $ php artisan passport:install
 
 4. Configure Passport in the AuthServiceProvider:
